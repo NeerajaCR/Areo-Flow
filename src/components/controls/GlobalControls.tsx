@@ -32,36 +32,59 @@ export function GlobalControls() {
   };
 
   return (
-    <Card className="border-border/50 bg-card/50">
-      <CardContent className="flex flex-wrap items-center justify-between gap-6 p-6">
-        <div className="flex items-center gap-4">
-          <Button 
-            variant={isPaused ? "default" : "outline"} 
-            size="lg" 
+    <Card className="border-border/50 bg-card/50 overflow-hidden">
+      <CardContent className="flex flex-col justify-between gap-6 p-4 md:p-2">
+        <div className="flex flex-col md:flex-row items-center gap-2 sm:gap-4">
+          <Button
+            variant={isPaused ? "default" : "outline"}
+            size="lg"
             onClick={togglePause}
-            className="w-40 gap-2 font-bold"
+            className="flex-1 md:w-auto gap-1 font-bold text-sm md:text-base"
           >
-            {isPaused ? <Play className="h-5 w-5 fill-current" /> : <Pause className="h-5 w-5 fill-current" />}
+            {isPaused ? <Play className="h-4 w-4 md:h-5 md:w-5 fill-current" /> : <Pause className="h-4 w-4 md:h-5 md:w-5 fill-current" />}
             {isPaused ? "RESUME" : "PAUSE"}
           </Button>
-          <Button variant="outline" size="lg" onClick={handleReset} className="gap-2">
-            <RotateCcw className="h-5 w-5" /> RESET GRID
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleReset}
+            className="flex-1 md:w-auto gap-1 text-sm md:text-base"
+          >
+            <RotateCcw className="h-4 w-4 md:h-5 md:w-5" />
+            <span className="hidden xs:inline">RESET GRID</span>
+            <span className="xs:hidden">RESET</span>
           </Button>
         </div>
 
-        <div className="h-10 w-px bg-border hidden md:block" />
-
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Environmental Presets</span>
-          <div className="flex gap-2">
-            <Button variant="secondary" size="sm" className="gap-2" onClick={() => applyPreset('calm')}>
-              <CloudRain className="h-4 w-4" /> CALM DAY
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="secondary"
+              size="sm"
+              className="flex-1 md:flex-none gap-2 h-9 px-3"
+              onClick={() => applyPreset('calm')}
+            >
+              <CloudRain className="h-4 w-4 shrink-0" />
+              <span className="truncate">CALM DAY</span>
             </Button>
-            <Button variant="secondary" size="sm" className="gap-2" onClick={() => applyPreset('storm')}>
-              <Wind className="h-4 w-4" /> STORM WARNING
+            <Button
+              variant="secondary"
+              size="sm"
+              className="flex-1 md:flex-none gap-2 h-9 px-3"
+              onClick={() => applyPreset('storm')}
+            >
+              <Wind className="h-4 w-4 shrink-0" />
+              <span className="truncate">STORM WARNING</span>
             </Button>
-            <Button variant="secondary" size="sm" className="gap-2" onClick={() => applyPreset('peak')}>
-              <Zap className="h-4 w-4" /> GRID PEAK
+            <Button
+              variant="secondary"
+              size="sm"
+              className="flex-1 md:flex-none gap-2 h-9 px-3"
+              onClick={() => applyPreset('peak')}
+            >
+              <Zap className="h-4 w-4 shrink-0" />
+              <span className="truncate">GRID PEAK</span>
             </Button>
           </div>
         </div>

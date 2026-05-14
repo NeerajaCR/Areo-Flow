@@ -34,18 +34,22 @@ export function Header() {
   };
 
   return (
-    <header className="flex h-16 items-center justify-between border-b bg-card/50 px-6 backdrop-blur-md">
-      <div className="flex items-center gap-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-primary glow-primary">
-          <Activity className="h-6 w-6" />
+    <header className="flex h-16 items-center justify-between border-b bg-card/50 px-4 md:px-6 backdrop-blur-md">
+      <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-primary/20 text-primary glow-primary shrink-0">
+          <Activity className="h-5 w-5 md:h-6 md:w-6" />
         </div>
-        <div>
-          <h1 className="text-xl font-bold tracking-tight text-foreground uppercase">AeroFlow <span className="text-primary/60">Grid</span></h1>
-          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.2em]">Industrial Node Control</p>
+        <div className="min-w-0">
+          <h1 className="text-lg md:text-xl font-bold tracking-tight text-foreground uppercase truncate">
+            AeroFlow <span className="text-primary/60 hidden sm:inline">Grid</span>
+          </h1>
+          <p className="text-[9px] md:text-[10px] font-bold text-muted-foreground uppercase tracking-[0.1em] md:tracking-[0.2em] truncate hidden xs:block">
+            Industrial Node Control
+          </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-2 md:gap-8">
         <div className="hidden md:flex items-center gap-4 border-x border-border/50 px-8">
           <div className="text-right">
             <p className="text-[10px] font-bold text-muted-foreground uppercase">System Time</p>
@@ -60,15 +64,15 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => setIsMuted(!isMuted)}>
+        <div className="flex items-center gap-1.5 md:gap-3">
+          <Button variant="ghost" size="icon" className="h-8 w-8 md:h-10 md:w-10" onClick={() => setIsMuted(!isMuted)}>
             {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
           </Button>
-          <Button variant="ghost" size="icon" onClick={toggleFullscreen}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 md:h-10 md:w-10 hidden sm:flex" onClick={toggleFullscreen}>
             {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
           </Button>
-          <div className="flex items-center gap-2">
-            <Badge variant={isPaused ? "secondary" : "success"} className="h-6 px-3">
+          <div className="flex items-center">
+            <Badge variant={isPaused ? "secondary" : "success"} className="h-6 px-2 md:px-3 text-[10px] md:text-xs">
               {isPaused ? "PAUSED" : "LIVE"}
             </Badge>
           </div>
