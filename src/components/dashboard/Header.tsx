@@ -43,9 +43,6 @@ export function Header() {
           <h1 className="text-lg md:text-xl font-bold tracking-tight text-foreground uppercase truncate">
             AeroFlow <span className="text-primary/60 hidden sm:inline">Grid</span>
           </h1>
-          <p className="text-[9px] md:text-[10px] font-bold text-muted-foreground uppercase tracking-[0.1em] md:tracking-[0.2em] truncate hidden xs:block">
-            Industrial Node Control
-          </p>
         </div>
       </div>
 
@@ -63,7 +60,6 @@ export function Header() {
             </p>
           </div>
         </div>
-
         <div className="flex items-center gap-1.5 md:gap-3">
           <Button variant="ghost" size="icon" className="h-8 w-8 md:h-10 md:w-10" onClick={() => setIsMuted(!isMuted)}>
             {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
